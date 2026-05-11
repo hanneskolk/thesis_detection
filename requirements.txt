@@ -1,0 +1,34 @@
+# requirements.txt
+#
+# Standard install (CPU or existing CUDA setup):
+#   pip install -r requirements.txt
+#
+# If torch installs without CUDA support, install manually:
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+#
+# Note on onnxruntime: this file installs onnxruntime-gpu via the NVIDIA index.
+# If your machine has no GPU, replace onnxruntime-gpu with onnxruntime.
+
+# ── Core inference and detection ──────────────────────────────────────────────
+ultralytics>=8.3.0
+torch>=2.1.0
+torchvision>=0.16.0
+
+# ── Image and video processing ────────────────────────────────────────────────
+opencv-python>=4.13.0
+Pillow>=10.0.0
+numpy>=2.0.0
+
+# ── Web interface ─────────────────────────────────────────────────────────────
+streamlit>=1.35.0
+
+# ── ONNX GPU runtime (NVIDIA index required) ──────────────────────────────────
+# Installs onnxruntime-gpu which satisfies ultralytics' onnxruntime check
+# while providing the CUDAExecutionProvider for GPU inference.
+--extra-index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple/
+onnxruntime-gpu==1.20.0
+
+# ── TensorRT (NVIDIA index required) ─────────────────────────────────────────
+# Only needed for TensorRT export. Safe to comment out on CPU-only machines.
+--extra-index-url https://pypi.nvidia.com
+tensorrt==10.3.0

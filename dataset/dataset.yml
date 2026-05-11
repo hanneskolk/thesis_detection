@@ -1,0 +1,15 @@
+names:
+  0: Artillery
+  1: Missile
+  2: Radar
+  3: RocketLauncher
+  4: Soldier
+  5: Tank
+  6: Vehicle
+
+path: dataset
+
+nc: 7
+train: train/images
+val: valid/images
+test: test/images
