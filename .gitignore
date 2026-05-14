@@ -1,0 +1,67 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# .gitignore
+#
+# Model files included in this repo (NOT ignored):
+#   best.pt       — PyTorch weights used for thesis testing
+#   best.onnx     — ONNX export used for thesis benchmarking
+#
+# The TensorRT engine IS ignored because it is compiled for a specific GPU
+# Must be rebuilt on each target machine
+# ══════════════════════════════════════════════════════════════════════════════
+
+
+# ── TensorRT engine — device-specific, not portable ──────────────────────────
+*.engine
+
+
+# ── Training output — large, fully reproducible from best.pt + dataset.yml ─────
+results/
+
+
+# ── Python virtual environment ────────────────────────────────────────────────
+venv/
+.venv/
+env/
+
+
+# ── Python cache and compiled files ──────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+
+# ── Streamlit runtime files ───────────────────────────────────────────────────
+.streamlit/secrets.toml
+# Note: .streamlit/config.toml is intentionally NOT ignored
+# so server address/port settings are shared with the repo
+
+
+# ── Benchmark and validation output ──────────────────────────────────────────
+benchmark_results.csv
+validation_results.json
+plots/
+
+
+# ── Ultralytics run cache ─────────────────────────────────────────────────────
+runs/
+
+
+# ── OS and editor files ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+
+# ── Jupyter notebooks (if any scratch work) ───────────────────────────────────
+.ipynb_checkpoints/
+
+
+# ── Environment variable files ────────────────────────────────────────────────
+.env
+.env.local
